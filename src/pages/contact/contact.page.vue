@@ -6,7 +6,10 @@
 
 <script>
 export default {
+    created(){
+            this.$store.commit("changePage","Contact");
 
+    }
 }
 </script>
 

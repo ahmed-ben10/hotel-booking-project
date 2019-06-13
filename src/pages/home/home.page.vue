@@ -15,6 +15,7 @@ export default {
   },
   async created(){
     this.hotel = await Api.Hotel.fetchAll();
+    this.$store.commit("changePage","Uitgelichte hotels");
   }
 
 }
