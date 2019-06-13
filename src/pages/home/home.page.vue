@@ -1,20 +1,25 @@
 <template>
   <div class="home">
-      <h2>Home</h2>
+      <search :hotels="hotels" />
   </div>
 </template>
 
 <script>
 import Api from '../../api/api';
+import search from './components/search.component.vue';
+
 export default {
   name: 'home',
+  components:{
+    search
+  },
   data: () => {
     return {
-      hotel: null
+      hotels: null
     }
   },
   async created(){
-    this.hotel = await Api.Hotel.fetchAll();
+    this.hotels = await Api.Hotel.fetchAll();
     this.$store.commit("changePage","Uitgelichte hotels");
   }
 

@@ -6,14 +6,14 @@
       </header> 
       <div id="nav-container">
         <router-link to="/">Home  <span> | </span></router-link> 
-        <router-link to="/mijn-Gereserveerde-Kamers">Mijn gereserveerde kamers <span> |</span></router-link> |
+        <router-link to="/mijn-Gereserveerde-Kamers">Mijn gereserveerde kamers <span class="sluisteken"> |</span></router-link> |
         <router-link to="/contact">Contact </router-link>
       </div>
     </div>
     <div id="page-name">
       <p>{{$store.state.currentPage}}</p>
     </div>
-    <router-view/>
+    <router-view id="router-view"/>
     <footer>
       <p>&copy; Copyright 2019 ROC MONDRIAAN - APPLICATIEONTWIKKELAAR</p>
     </footer>
@@ -52,7 +52,7 @@ body{
   font-size: 30pt;
   color: #EDF5E1;
 }
-span{
+.sluisteken{
   color: #EDF5E1 ;
 }
 #nav-container{
@@ -62,12 +62,14 @@ span{
   color: #42b983;
 }
 #page-name{
-  width: 100%;
+  width: 98%;
   background-color: #42b983;
-  padding: 10px;
   color: #EDF5E1;
   font-size: 15pt; 
-  padding-left: 1%;
+  padding: 1%;
+}
+#router-view{
+    padding:1%;
 }
 footer{
   position: fixed;

@@ -8,12 +8,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Uitgelichte artiesten',
       component: Home
     },
     {
       path: '/mijn-Gereserveerde-Kamers',
-      name: 'mijn-Gereserveerde-Kamers',
+      name: 'Mijn gereserveerde kamers',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -21,7 +21,7 @@ export default new Router({
     },
     {
       path: '/contact',
-      name: 'contact',
+      name: 'Contact',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.

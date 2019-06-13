@@ -7,8 +7,7 @@
 <script>
 export default {
     created(){
-            this.$store.commit("changePage","Contact");
-
+        this.$store.commit("changePage","Contact");
     }
 }
 </script>
