@@ -1,8 +1,6 @@
 export default class Hotel{
     static fromJSON(params){
         const newHotel = new Hotel();
-        console.log(params)
-        console.log("---------------------")
         // things you want to save in newHotel 
         newHotel.land = params.land;
         newHotel.werelddeel = params.werelddeel;
