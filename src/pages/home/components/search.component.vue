@@ -51,6 +51,7 @@ export default {
             this.$store.commit("changePage","Zoekresultaten: "+this.searchText);
         },
         showItem(hotel){
+            this.searchText = "";
             this.$emit("searchedItems",hotel);
         }
     }
@@ -94,12 +95,14 @@ export default {
 }
 #search-items{
     border: 1px solid gray;
+    height: 93%;
+    object-fit: contain
 }
 #search-items ul {
     padding-left: 0;
 }
 #search-items ul li{
-    padding: 2%;
+    padding: 5%;
     text-align: center;
     list-style-type: none;
     border-bottom: 1px solid lightgray;

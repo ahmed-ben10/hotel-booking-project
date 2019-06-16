@@ -38,12 +38,13 @@
 <style>
 .home{
   display: grid;
-  grid-template-columns: 15% 80%;
+  grid-template-columns: 20% 80%;
   grid-gap: 1%;
+  margin-bottom: 5%;
 }
 .search{
    width: 100%;
-   float: left;
+   cursor:pointer;
 }
 .hotel-result{
   width: 100%;
