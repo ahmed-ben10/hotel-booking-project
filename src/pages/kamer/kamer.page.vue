@@ -1,7 +1,9 @@
 <template>
     <div class="kamer-wrapper">
+        <div> </div>
         <gegevens :kamer="kamer" :hotel="hotels" :specificHotel="specificHotel"/>
         <persoonsGegevens :kamer="kamer" />
+        <div> </div>
     </div>
 </template>
 
@@ -31,8 +33,8 @@ export default {
 <style>
 .kamer-wrapper{
     display: grid;
-    grid-template-columns: repeat(2,40%);
-    grid-gap: 1%;
-    justify-items: center;
+    grid-template-columns: 1fr 3fr 6fr 1fr;
+    grid-gap: 3%;
+    margin-bottom: 5%;
 }
 </style>
