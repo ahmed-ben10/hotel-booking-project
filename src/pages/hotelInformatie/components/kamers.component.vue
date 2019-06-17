@@ -16,7 +16,7 @@
                     <p>per persoon per nacht</p>
                 </div>
                 <div id="button-container">
-                    <button>Reserveer</button>
+                    <button @click="reserveerKamer(kamer)">Reserveer</button>
                 </div>
             </div>
         </div>
@@ -30,6 +30,12 @@ export default {
         hotel:{
             type: Object,
             required: true
+        }
+    },
+    methods: {
+        reserveerKamer(kamer){
+            this.$store.commit("goToRoom",kamer);
+            this.$router.push("/kamer")
         }
     }
 }

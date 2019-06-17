@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <search :hotels="hotels" @searchedItems="setSearchedItems" class="search" />
-    <hotelResult :searchedItems="searchedItems" class="hotel-result"/>
+    <hotelResult :allHotels="hotels" :searchedItems="searchedItems" class="hotel-result"/>
   </div>
 </template>
 

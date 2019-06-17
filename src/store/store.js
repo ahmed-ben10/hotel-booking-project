@@ -7,17 +7,21 @@ export default new Vuex.Store({
     state: {
       currentPage: "",
       hotels:{},
-      specificHotel:{}
+      specificHotel:{},
+      kamer: {}
     },
     mutations: {
       changePage:(state,page) =>{
           state.currentPage = page;
       },
-      setSpecificHotel:(state,specificHotel)=>{
+      setSpecificHotel:(state,specificHotel) =>{
         state.specificHotel = specificHotel;
       },
-      setHotels:(state,hotels)=>{
+      setHotels:(state,hotels) =>{
         state.hotels = hotels;
+      },
+      goToRoom: (state,kamer) =>{
+        state.kamer = kamer;
       }
     }
   });

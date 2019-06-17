@@ -59,7 +59,7 @@ body{
   padding-top: 2%;
 }
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #379683 ;
 }
 #page-name{
   width: 98%;
@@ -76,7 +76,7 @@ footer{
   bottom: 0;
   width: 100%;
   padding: 20px;
-  background-color: #379683 ;
+  background-color: #379683;
   color: #EDF5E1 ;
   text-align: center;
 }

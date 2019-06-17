@@ -58,13 +58,13 @@ export default {
         readMore(specificHotel){
             this.$store.commit("setHotels",this.hotels);
             this.$store.commit("setSpecificHotel",specificHotel);
-            this.$router.push("/hotel-informatie")
+            this.$router.push("/hotel-informatie");
         }
     }
 }
 </script>
 
-<style>
+<style scoped>
 #hotel-result{
     display: grid;
     grid-template-columns: 40% 40% 19%;

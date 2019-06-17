@@ -1,7 +1,7 @@
 <template>
     <div id="search-wrapper">
         <div id="input-container">
-            <input type="text" v-model="searchText" placeholder="Zoek een stad..." @keyup="search">
+            <input type="search" v-model="searchText" placeholder="Zoek een stad..." @keyup="search">
             <img src="https://image.flaticon.com/icons/png/512/55/55369.png" @click="search"/>
         </div>
         <div id="search-items">
@@ -43,7 +43,6 @@ export default {
                 const land =hotel.land.toLowerCase();
                 const werelddeel =hotel.werelddeel.toLowerCase();   
                 const text =this.searchText.toLowerCase().trim();
-
                 if(stad.includes(text) || land.includes(text) ||werelddeel.includes(text)){
                     return true;
                 } 
@@ -58,7 +57,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #search-wrapper{
     height: 100%;
     padding: 1%;
