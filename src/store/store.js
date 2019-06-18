@@ -8,7 +8,9 @@ export default new Vuex.Store({
       currentPage: "",
       hotels:{},
       specificHotel:{},
-      kamer: {}
+      kamer: {},
+      voorlopigeReservering:[],
+      besteldeKamers:[]
     },
     mutations: {
       changePage:(state,page) =>{
@@ -22,6 +24,9 @@ export default new Vuex.Store({
       },
       goToRoom: (state,kamer) =>{
         state.kamer = kamer;
+      },
+      setVoorlopigeReservering:(state, personen) =>{
+        state.voorlopigeReservering = personen ;
       }
     }
   });

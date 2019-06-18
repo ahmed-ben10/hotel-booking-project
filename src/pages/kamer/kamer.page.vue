@@ -2,7 +2,7 @@
     <div class="kamer-wrapper">
         <div> </div>
         <gegevens :kamer="kamer" :hotel="hotels" :specificHotel="specificHotel"/>
-        <persoonsGegevens :kamer="kamer" />
+        <component :is="currentComponent" :kamer="kamer" @setCurrentComponent="setCurrentComponent"></component>
         <div> </div>
     </div>
 </template>
@@ -11,14 +11,29 @@
 import { mapState } from "vuex";
 import gegevens from './components/gegevens.component.vue';
 import persoonsGegevens from './components/persoonsGegevens.component.vue';
-
+import bevesteging from './components/bevesteging.component.vue';
 export default {
     created (){
         this.$store.commit("changePage","Reserveer kamer")
     },
     components:{
         gegevens,
-        persoonsGegevens
+        persoonsGegevens,
+        bevesteging
+    },
+    data: () =>{
+        return {
+            currentComponent:persoonsGegevens
+        }
+    },
+    methods:{
+        setCurrentComponent(){
+            if(this.currentComponent == persoonsGegevens){
+                this.currentComponent = bevesteging;
+            } else {
+                this.currentComponent = persoonsGegevens;
+            }
+        }
     },
     computed:{
         ...mapState([
@@ -26,6 +41,9 @@ export default {
             'specificHotel',
             'hotels'
         ])
+    },
+    destroyed(){
+        this.$store.state.voorlopigeReservering =[];
     }
 }
 </script>

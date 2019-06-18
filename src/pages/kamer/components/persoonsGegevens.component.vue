@@ -7,34 +7,39 @@
                 <option v-for="(kamer,index) in kamer.maxPersonen" :key="index">{{kamer.toFixed(0)}}</option>
             </select>
         </div>
-        <form>
+        <form @submit.prevent="">
             <div id="persoon" v-for="(aPersoon, i) in personen" :key="i">
                 <p>Persoon {{(i+1)}}</p>
                 <div id="voornaam-container">
                     <label for="voornaam">Voornaam: </label>
-                <input type="text" v-model="aPersoon.naam" placeholder="John" >
+                    <input type="text" v-model="aPersoon[0].data" placeholder="John" @blur="checkTextField(i,aPersoon[0].val)">
+                    <span>{{aPersoon[0].error}}</span>
                 </div>
                 <div id="achternaam-container">
                     <label for="achternaam">Achternaam: </label>
-                    <input type="text" v-model="aPersoon.achternaam" placeholder="Doe">
+                    <input type="text" v-model="aPersoon[1].data" placeholder="Doe" @blur="checkTextField(i,aPersoon[1].val)">
+                    <span>{{aPersoon[1].error}}</span>
                 </div>
                 <div id="mobiel-container">
                     <label for="mobiel">Mobiel: </label>
-                    <input type="text" v-model="aPersoon.mobiel" placeholder="06-12345678">
+                    <input type="text" v-model="aPersoon[2].data" placeholder="06-12345678" @blur="checkTextField(i,aPersoon[2].val)">
+                    <span>{{aPersoon[2].error}}</span>
                 </div>
                 <div id="email-container">
                     <label for="email">Email: </label>
-                    <input type="email" v-model="aPersoon.email" placeholder="john.doe@hotmail.com">
+                    <input type="email" v-model="aPersoon[3].data" placeholder="john.doe@hotmail.com" @blur="checkTextField(i,aPersoon[3].val)">
+                    <span>{{aPersoon[3].error}}</span>
                 </div>
             </div>
             <div id="submit-container">
-                <input type="submit" value="Reserveer" >
+                <input type="submit" value="Reserveer" @click="goToBevesteging">
             </div>
         </form>
     </div>
 </template>
 
 <script>
+import {textValidation, mobielValidation, emailValidation } from "@/utils/validation.util.js";
 export default {
     name: 'persoonsGegevens',
     props:{
@@ -46,14 +51,17 @@ export default {
     data: () => {
         return{
             aantal:1,
-            personen: [
-                {
-                    naam:"",
-                    achternaam:"", 
-                    mobiel:"",
-                    email:""
-                }
-            ]
+            personen: [[ 
+                { val: "voornaam", error: "", data:""},
+                { val: "achternaam", error: "", data:"" },
+                { val: "mobiel", error: "", data:""},
+                { val: "email", error: "", data:"" }
+            ]]
+        }
+    },
+    created(){
+        if(this.$store.state.voorlopigeReservering.length){
+            this.personen = this.$store.state.voorlopigeReservering;
         }
     },
     methods:{
@@ -61,12 +69,55 @@ export default {
             this.aantal = parseInt(aantal);
             this.personen = [];
             for (let i = 0; i < this.aantal; i++) {
-                this.personen.push({
-                    naam:"",
-                    achternaam:"", 
-                    mobiel:"",
-                    email:""
-            });
+                this.personen.push([ 
+                    { val: "voornaam", error: "", data:""},
+                    { val: "achternaam", error: "", data:"" },
+                    { val: "mobiel", error: "", data:""},
+                    { val: "email", error: "", data:"" }
+                ]);
+               
+            }
+        },
+        checkTextField(i,val){
+            switch(val){
+                case"voornaam":
+                this.personen[i][0].error = textValidation({min:2, max:60},this.personen[i][0].data);
+                break;
+
+                case"achternaam":
+                this.personen[i][1].error = textValidation({min:2, max:60},this.personen[i][1].data);
+                break;
+
+                case"mobiel":
+                this.personen[i][2].error = mobielValidation({max:10}, this.personen[i][2].data);
+
+                break;
+
+                case"email":
+                this.personen[i][3].error = emailValidation(this.personen[i][3].data);
+                break;
+            }
+         
+        },
+        goToBevesteging(){
+            for (let i = 0; i < this.personen.length; i++) {
+                for (let j = 0; j < this.personen[i].length; j++) {
+                    if(this.personen[i][j].data != ""){
+                        if(this.personen[i][j].error == ""){
+                            if((i+1) == this.personen.length && (j+1) == this.personen[i].length){
+                                this.$store.commit("setVoorlopigeReservering",this.personen);
+                                this.$emit("setCurrentComponent");
+                            }
+                        } else{
+                            return;
+                        }
+                        
+                    } else {
+                        return;
+                    }
+                    
+                }
+                
             }
         }
     }
@@ -104,6 +155,11 @@ export default {
 #persoon div input{
     margin-bottom: 1%;
     padding: 5px 7px;
+}
+#persoon div span{
+    color: red;
+    font-size: 80%;
+    grid-column: 2/2;
 }
 #aantal-personen select{
     width: 50%;
