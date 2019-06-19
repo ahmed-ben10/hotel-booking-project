@@ -8,7 +8,7 @@
             <ul v-if="!searchText.length">
                 <li v-for="(hotel,index) in hotels" :key="index" @click="showItem(hotel)">
                     <p>{{hotel.stad}}</p>
-                    <span>{{hotel.land}} {{hotel.werelddeel}}</span>
+                    <span>{{hotel.land}}, {{hotel.werelddeel}}</span>
                 </li>
             </ul>
             <ul v-else>

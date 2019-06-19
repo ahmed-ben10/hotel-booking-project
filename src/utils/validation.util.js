@@ -4,11 +4,11 @@ export const textValidation = (params,val) =>{
     const newVal = val.trim();
 
     if(newVal == ''){
-        return 'Dit tekst vak mag niet leeg blijven';
+        return 'Dit tekst vak mag niet leeg blijven.';
     }
 
     if(newVal.length < min  || newVal.length > max ){
-        return 'Uw invoer komt niet overeen met onze criteria ';
+        return 'Uw invoer komt niet overeen met onze criteria. ';
     }
 
     return '';
@@ -20,11 +20,11 @@ export const mobielValidation = (params,val) =>{
     const isNum = /^\d+$/.test(newVal);
 
     if(newVal == ''){
-        return 'Dit tekst vak mag niet leeg blijven';
+        return 'Dit tekst vak mag niet leeg blijven.';
     }
 
     if(!isNum  || newVal.length  !== max ){
-        return 'Uw invoer komt niet overeen met onze criteria ';
+        return 'Voer een geldige mobiele telefoonnummer in. ';
     }
     return '';
 }
@@ -34,7 +34,7 @@ export const emailValidation = (val) =>{
     const emailRegex = /^([A-Za-z0-9_\-.+])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,})$/;
 
     if(newVal == ''){
-        return 'Dit tekst vak mag niet leeg blijven';
+        return 'Dit tekst vak mag niet leeg blijven.';
     }
 
     if(!emailRegex.test(newVal)){

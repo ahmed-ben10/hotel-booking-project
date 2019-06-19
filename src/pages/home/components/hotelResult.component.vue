@@ -70,17 +70,19 @@ export default {
     grid-template-columns: 40% 40% 19%;
     background-color: white;
     grid-gap: 1%;
-    margin: 1%;
+    margin: 3% 2% 3% 2%;
     border: 1px solid lightgray;
+    height: 290px;
+
 }
 #image-container img{
     width: 100%;
     height: 290px;
     object-fit: cover;
 }
-#info-container {
+/* #info-container {
     padding: 5%;
-}
+} */
 #info-container h2{
     color: #05386B;
 }

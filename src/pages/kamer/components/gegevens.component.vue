@@ -13,7 +13,7 @@
             <div id="grid-container">
                 <div id="kamer-info-container">
                     <p>{{kamer.soortKamer}}</p>
-                    <p>&euro; {{kamer.prijs}}</p>
+                    <p>&euro; {{kamer.prijs.toFixed(2)}}</p>
                     <p>{{kamer.soortBed}}</p>
                     <p></p>
                     <p>max {{kamer.maxPersonen}} personen</p>

@@ -24,6 +24,7 @@
     },
     async created() {
       this.hotels = await Api.Hotel.fetchAll();
+      console.log(this.hotels);
       this.$store.commit("changePage", "Uitgelichte hotels");
     },
     methods: {
@@ -48,5 +49,6 @@
 }
 .hotel-result{
   width: 100%;
+  height: 290px;
 }
 </style>

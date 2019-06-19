@@ -3,7 +3,7 @@
         <h2>Persoonlijke gegevens</h2>
         <div id="aantal-personen">
             <label for="">Aantal pers.</label>
-            <select  v-model="aantal" @click="setAantal(aantal)" aria-placeholder="">
+            <select  v-model="aantal"  aria-placeholder="">
                 <option v-for="(kamer,index) in kamer.maxPersonen" :key="index">{{kamer.toFixed(0)}}</option>
             </select>
         </div>
@@ -47,6 +47,11 @@ export default {
             type:Object,
             required:true
         }
+    },
+    watch:{
+       aantal: function(){
+           this.setAantal(this.aantal);
+       }
     },
     data: () => {
         return{
@@ -113,11 +118,21 @@ export default {
                         }
                         
                     } else {
+                        this.checkIfBoxexAreEmpty();
                         return;
                     }
                     
                 }
                 
+            }
+        },
+        checkIfBoxexAreEmpty(){
+            for (let i = 0; i < this.personen.length; i++) {
+                for (let j = 0; j < this.personen[i].length; j++) {
+                    if(this.personen[i][j].data == ""){
+                        this.personen[i][j].error ="Dit tekst vak mag niet leeg blijven.";      
+                    }
+                }
             }
         }
     }
