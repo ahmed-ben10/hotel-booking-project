@@ -24,7 +24,6 @@
     },
     async created() {
       this.hotels = await Api.Hotel.fetchAll();
-      console.log(this.hotels);
       this.$store.commit("changePage", "Uitgelichte hotels");
     },
     methods: {

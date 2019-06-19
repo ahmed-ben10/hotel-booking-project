@@ -69,7 +69,7 @@ export default {
 
 }
 #input-container input{
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 0.5rem 10%;
     outline: none; 
 }

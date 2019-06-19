@@ -26,6 +26,7 @@
 }
 body{
   background-color: #EDF5E1;
+  color: #05386B;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -75,7 +76,7 @@ footer{
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 20px;
+  padding: 15px;
   background-color: #379683;
   color: #EDF5E1 ;
   text-align: center;

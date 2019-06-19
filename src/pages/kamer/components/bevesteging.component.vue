@@ -53,15 +53,18 @@ export default {
             var reservering ={
                 kamer:this.kamer,
                 personen: this.voorlopigeReservering,
-                specificHotel: this.specificHotel
+                specificHotel: this.specificHotel,
+                hotels: this.hotels
             }
-            this.$store.commit("setReservering", reservering)
+            this.$store.commit("setReservering", reservering);
+            this.$router.push("/mijn-Gereserveerde-Kamers");
         }
     },
     computed:{
         ...mapState([
             'voorlopigeReservering',
-            'specificHotel'
+            'specificHotel',
+            'hotels'
         ])
     }
 }

@@ -29,6 +29,10 @@ export default {
         searchedItems:{
             type: Object,
             required:true,
+        },
+        allHotels:{
+            type: null,
+            required:true,
         }
     },
     data:() =>{
@@ -39,20 +43,10 @@ export default {
     watch:{
         searchedItems(newVal, oldVal){
             this.hotels = newVal;
-        }
-    },
-    created(){
-        this.hotels =
-            { land:'Nederland', werelddeel:'Europa', stad:'Den Haag', 
-                    hotels:[
-                        { naam:'Babylon Hotel', img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Hampshire_Hotel_-_Babylon_Den_Haag.jpg/1024px-Hampshire_Hotel_-_Babylon_Den_Haag.jpg", voorzieningen:[{naam:"Wifi", img:"https://image.flaticon.com/icons/svg/53/53524.svg"}, {naam:"Restaurant", img:"https://image.flaticon.com/icons/svg/685/685352.svg"}, {naam:"Fitness", img:"https://image.flaticon.com/icons/svg/53/53524.svg"}, {naam:"Zwembad", img:"https://image.flaticon.com/icons/svg/1659/1659263.svg"}, {naam:"Naast het Station", img:"https://image.flaticon.com/icons/svg/100/100228.svg"}],prijs:101, beschrijving:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet unde exercitationem, laboriosam ab sint animi harum ratione fugit aperiam autem, qui fuga voluptatum? Numquam enim, ex at odit quos tempora?", 
-                            kamers:[{soortKamer:"Standaard kamer", img:"https://media-cdn.tripadvisor.com/media/photo-s/0f/4c/00/80/2-eenpersoonsbedden-naast.jpg", soortBed:"2 eenpersoonsbedden", maxPersonen:2, prijs:173.40},{soortKamer:"Superior tweepersoonskamer", img:"https://www.florishotelkarosbrugge.be/upload/images/double-room/superior-double-twin-room-2.jpg", soortBed:"1 tweepersoonsbed", maxPersonen:2, prijs:201.60}] 
-                        },
-                        { naam:'Van der Valk', img:"https://images.trvl-media.com/hotels/2000000/1810000/1805200/1805172/65fc44bb_z.jpg", voorzieningen:[{naam:"Wifi", img:"https://image.flaticon.com/icons/svg/53/53524.svg"}, {naam:"Restaurant", img:"https://image.flaticon.com/icons/svg/685/685352.svg"}, {naam:"Fitness", img:"https://image.flaticon.com/icons/svg/53/53524.svg"}, {naam:"Zwembad", img:"https://image.flaticon.com/icons/svg/1659/1659263.svg"}, {naam:"Naast het Station", img:"https://image.flaticon.com/icons/svg/100/100228.svg"}],prijs:101, 
-                            kamers:[{soortKamer:"Standaard kamer", img:"https://media-cdn.tripadvisor.com/media/photo-s/0f/4c/00/80/2-eenpersoonsbedden-naast.jpg", soortBed:"2 eenpersoonsbedden", maxPersonen:2, prijs:173.40},{soortKamer:"Superior tweepersoonskamer", img:"https://www.florishotelkarosbrugge.be/upload/images/double-room/superior-double-twin-room-2.jpg", soortBed:"1 tweepersoonsbed", maxPersonen:2, prijs:201.60}] 
-                        }                    
-                    ]
-                };
+        },
+        allHotels: function(newVal, oldVal){
+            this.hotels = newVal[0];
+        },
     },
     methods:{
         readMore(specificHotel){
@@ -85,6 +79,7 @@ export default {
 } */
 #info-container h2{
     color: #05386B;
+    margin-bottom: 2%;
 }
 #info-container p{
     color: gray;

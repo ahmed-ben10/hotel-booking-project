@@ -1,9 +1,7 @@
 <template>
     <div class="kamer-wrapper">
-        <div> </div>
         <gegevens :kamer="kamer" :hotel="hotels" :specificHotel="specificHotel"/>
         <component :is="currentComponent" :kamer="kamer" @setCurrentComponent="setCurrentComponent"></component>
-        <div> </div>
     </div>
 </template>
 
@@ -51,8 +49,14 @@ export default {
 <style>
 .kamer-wrapper{
     display: grid;
-    grid-template-columns: 1fr 3fr 6fr 1fr;
-    grid-gap: 3%;
+    grid-template-columns: 1fr 3fr 8fr 1fr;
+    grid-gap: 2%;
     margin-bottom: 5%;
+}
+#reservering-gegevens{
+    grid-column: 2/2;
+}
+#bevesteging, #persoons-gegevens{
+    grid-column: 3/4;
 }
 </style>
