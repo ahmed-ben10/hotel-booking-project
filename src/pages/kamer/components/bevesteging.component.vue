@@ -29,7 +29,7 @@
                 <button @click="goToWijzig"> Wijzigen </button>
             </div>
             <div id="bevestig-container">
-                <button>Bevestigen</button>
+                <button @click="setReservering">Bevestigen</button>
             </div>
         </div>
     </div>
@@ -39,14 +39,29 @@
 import { mapState } from 'vuex';
 export default {
     name:'bevesteging',
+    props:{
+        kamer:{
+            type: Object,
+            required: true
+        }
+    },
     methods:{
         goToWijzig(){
             this.$emit("setCurrentComponent");
+        },
+        setReservering(){
+            var reservering ={
+                kamer:this.kamer,
+                personen: this.voorlopigeReservering,
+                specificHotel: this.specificHotel
+            }
+            this.$store.commit("setReservering", reservering)
         }
     },
     computed:{
         ...mapState([
-            'voorlopigeReservering'
+            'voorlopigeReservering',
+            'specificHotel'
         ])
     }
 }
