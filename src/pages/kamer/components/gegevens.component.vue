@@ -20,17 +20,17 @@
                 </div>
                 <div id="kamer-prijs-container">
                     <p>Bijkomende kosten:</p>
-                    <p>&euro; {{18.90}}</p>
+                    <p>&euro; {{bijkomendeKosten.toFixed()}}</p>
                     <p>Toeristen belasting &euro; {{4.45}} per persoon per nacht:</p>
-                    <p>&euro; {{8.90}}</p>
+                    <p>&euro; {{toeristenBelasting.toFixed()}}</p>
                 </div>
                 <div id="kamer-service-container">
                     <p>Servicekosten:</p>
-                    <p>&euro; {{10.00}}</p>
+                    <p>&euro; {{servicekosten.toFixed()}}</p>
                 </div>
                 <div id="totaal">
                     <p>Totaal:</p>
-                    <p>&euro; {{239.40}}<span>per persoon per nacht</span></p>
+                    <p>&euro; {{totaal}}<span>per persoon per nacht</span></p>
                 </div>
             </div>
         </div>
@@ -52,6 +52,20 @@ export default {
         hotel:{
             type: Object,
             required: true
+        }
+    },
+    data: () =>{
+        return{
+            bijkomendeKosten:18.9,
+            toeristenBelasting: 8.9,
+            servicekosten: 10
+
+        }
+    },
+    computed:{
+        totaal:function(){
+            var totaal = this.kamer.prijs + this.bijkomendeKosten + this.toeristenBelasting + this.servicekosten ;
+            return totaal.toFixed();
         }
     }
 }

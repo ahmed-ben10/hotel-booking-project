@@ -19,6 +19,15 @@ export default {
         persoonsGegevens,
         bevesteging
     },
+    metaInfo: {
+      title: "Reservering",
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        // al deze keywords dragen bij de vindbaarheid van de website, omdat ze met kamer,boeken, hotels en gegevens te maken hebben.
+        { keywords: 'reserveren, kamer, hotelkamer gegevens, informatie, info, hotels, hotel, boeken,booking'}
+      ]
+    },
     data: () =>{
         return {
             currentComponent:persoonsGegevens
