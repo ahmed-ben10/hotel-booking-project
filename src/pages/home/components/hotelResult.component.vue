@@ -8,10 +8,10 @@
                 <div id="info-container">
                     <h2>{{hotel.naam}} - {{hotels.stad}}</h2>
                     <p>{{hotels.stad}}, {{hotels.land}}</p>
-                    <ul id="voorzieningen" >
-                        <li v-for="(voorziening,index) in hotel.voorzieningen" :key="index"><img :src="voorziening.img" alt="">{{voorziening.naam}}</li>
-                    </ul>
                 </div>
+                <ul id="voorzieningen" >
+                    <li v-for="(voorziening,index) in hotel.voorzieningen" :key="index"><img :src="voorziening.img" alt="">{{voorziening.naam}}</li>
+                </ul>
                 <div id="prijs-en-button-container">
                     <p>Vanaf</p>
                     <p>&euro;{{hotel.prijs}},- p.p.p.n.</p>
@@ -61,7 +61,7 @@ export default {
 <style scoped>
 #hotel-result{
     display: grid;
-    grid-template-columns: 40% 40% 19%;
+    grid-template-columns: 2fr 2fr 1fr;
     background-color: white;
     grid-gap: 1%;
     margin: 3% 2% 3% 2%;
@@ -69,14 +69,19 @@ export default {
     height: 290px;
 
 }
+#image-container{
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
 #image-container img{
     width: 100%;
     height: 290px;
     object-fit: cover;
 }
-/* #info-container {
-    padding: 5%;
-} */
+#info-container{
+    grid-column: 2/4;
+    grid-row: 1/2;
+}
 #info-container h2{
     color: #05386B;
     margin-bottom: 2%;
@@ -86,11 +91,16 @@ export default {
 }
 #voorzieningen{
     list-style-type: none;
-    margin-top: 10%;
+    grid-column: 2/3;
+    grid-row: 2/3;
     padding-left: 0;
 }
 #voorzieningen img{
     width: 20px;
+}
+#prijs-en-button-container{
+    grid-column: 3/4;
+    grid-row: 2/3;
 }
 #prijs-en-button-container p{
     color: #05386B;
@@ -98,12 +108,11 @@ export default {
     font-size: 20pt;
 }
 #prijs-en-button-container p:first-child{
-    margin-top: 25%;
     font-size: 15pt;
     
 }
 #prijs-en-button-container button{
-    padding: 10% 8%;
+    padding: 8% 6%;
     width: 85%;
     margin-top: 5%;
     background-color: #05386B;

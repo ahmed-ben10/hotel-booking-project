@@ -28,5 +28,6 @@ export default {
     grid-template-columns: 1fr 1fr;*/
     margin: auto;
     width: 50%;
+    margin-bottom: 4%;
 }
 </style>

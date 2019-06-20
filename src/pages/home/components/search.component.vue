@@ -39,15 +39,18 @@ export default {
     methods:{
         search(){
             this.searchList = this.hotels.filter(hotel =>{
-                const stad =hotel.stad.toLowerCase();
-                const land =hotel.land.toLowerCase();
-                const werelddeel =hotel.werelddeel.toLowerCase();   
+                const stad =hotel.stad.toLowerCase().replace("ë","e");
+                const land =hotel.land.toLowerCase().replace("ë","e");
+                const werelddeel =hotel.werelddeel.toLowerCase().replace("ë","e");   
                 const text =this.searchText.toLowerCase().trim();
-                if(stad.includes(text) || land.includes(text) ||werelddeel.includes(text)){
-                    return true;
-                } 
+
+                return stad.includes(text) || land.includes(text) ||werelddeel.includes(text);
             })
-            this.$store.commit("changePage","Zoekresultaten: "+this.searchText);
+            if(this.searchText.length){
+                this.$store.commit("changePage","Zoekresultaten: "+this.searchText);
+            } else{
+                this.$store.commit("changePage","Uitgelichte hotels");
+            }
         },
         showItem(hotel){
             this.searchText = "";

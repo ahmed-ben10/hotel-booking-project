@@ -3,7 +3,7 @@
         <h2>Persoonlijke gegevens</h2>
         <div id="aantal-personen">
             <label for="">Aantal pers.</label>
-            <select  v-model="aantal"  aria-placeholder="">
+            <select  v-model="aantal"  aria-placeholder="" @change="setAantal(aantal)">
                 <option v-for="(kamer,index) in kamer.maxPersonen" :key="index">{{kamer.toFixed(0)}}</option>
             </select>
         </div>
@@ -48,11 +48,6 @@ export default {
             required:true
         }
     },
-    watch:{
-       aantal: function(){
-           this.setAantal(this.aantal);
-       }
-    },
     data: () => {
         return{
             aantal:1,
@@ -67,7 +62,9 @@ export default {
     created(){
         if(this.$store.state.voorlopigeReservering.length){
             this.personen = this.$store.state.voorlopigeReservering;
+            this.aantal = this.$store.state.voorlopigeReservering.length;
         }
+        
     },
     methods:{
         setAantal(aantal){

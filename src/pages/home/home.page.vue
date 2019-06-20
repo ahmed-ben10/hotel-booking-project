@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <search :hotels="hotels" @searchedItems="setSearchedItems" class="search" />
-    <hotelResult :allHotels="hotels" :searchedItems="searchedItems" class="hotel-result"/>
+    <hotelResult :allHotels="hotels" :searchedItems="searchedItems" class="hotel-result" />
   </div>
 </template>
 
@@ -12,6 +12,14 @@
 
   export default {
     name: 'home',
+    metaInfo: {
+      title: "Hotel-Booking",
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { keywords: 'hotel, booking, nederland, europa , vakantie, reizen, zomer, zomervakantie, van der valk, babylon,'}
+      ]
+    },
     components: {
       search,
       hotelResult
@@ -36,18 +44,21 @@
 
 </script>
 <style>
-.home{
-  display: grid;
-  grid-template-columns: 20% 80%;
-  grid-gap: 1%;
-  margin-bottom: 5%;
-}
-.search{
-   width: 100%;
-   cursor:pointer;
-}
-.hotel-result{
-  width: 100%;
-  height: 290px;
-}
+  .home {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-gap: 1%;
+    margin-bottom: calc(1rem * 2);
+  }
+
+  .search {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .hotel-result {
+    width: 100%;
+    height: 290px;
+  }
+
 </style>
