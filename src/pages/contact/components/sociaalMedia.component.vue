@@ -2,7 +2,7 @@
     <div id="icon-container">
         <h2>Andere contact mogelijkheden</h2>
         <ul>
-            <li v-for="(icon, i) in icons" :key="i"><a :href="icon.link" target="_blank"><img :src="icon.img" alt="icon"></a><span>{{icon.naam}}</span></li>
+            <li v-for="(icon, i) in icons" :key="i"><a :href="icon.link"><img :src="icon.img" alt="icon"></a><span>{{icon.naam}}</span></li>
         </ul>
     </div>
 </template>
@@ -20,9 +20,6 @@ export default {
                 {naam:"Mail", img:require("@/assets/icon/mail.png"),link:"http://outlook.office.com/"},
                 {naam:"Chat", img:require("@/assets/icon/chat.png"),link:"https://nl.pinterest.com"},
                 {naam:"App", img:require("@/assets/icon/whatsapp.png"),link:"https://www.whatsapp.com/"}
-
-
-
             ]
         }
     }
@@ -35,7 +32,7 @@ export default {
     padding-left: 0;
 }
 #icon-container ul li{
-    padding: 1%;
+    padding: 2%;
     float: left;
     text-align: center;
 }
@@ -46,5 +43,29 @@ export default {
 }
 #icon-container ul li span{
     font-size: 75%;
+}
+
+/*Mobiel design*/
+@media screen and (max-width: 600px) {
+    #icon-container{
+        margin-bottom: 50%;
+    }
+   #icon-container h2{
+       background-color: #379683;
+       font-size: 4.5vw;
+       padding: 2%;
+       font-weight: lighter;
+       color: white;
+       text-decoration: underline;
+   }
+   #icon-container ul{
+       display: grid;
+       grid-template-columns: repeat(6, 1fr);
+       grid-gap: 2%;
+   } 
+   #icon-container ul li a img{
+        width: 40px;
+   }
+
 }
 </style>

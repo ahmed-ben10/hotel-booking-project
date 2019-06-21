@@ -2,12 +2,12 @@
     <div id="gereserveerde-kamers">
         <div v-if="gereserveerdeKamers.length">  
             <div id="reservering" v-for="(reservering,i) in gereserveerdeKamers" :key="i" @click="goToHotelInformation(reservering)">
-                <div id="gereserveerde-image">
-                    <img :src="reservering.specificHotel.img" alt="">
-                </div>
                 <div id="gereserveerde-info">
                     <p>{{reservering.specificHotel.naam}} - {{reservering.hotels.stad}}</p>
                     <span>{{reservering.hotels.stad}}, {{reservering.hotels.land}}</span>
+                </div>
+                <div id="gereserveerde-image">
+                    <img :src="reservering.specificHotel.img" alt="">
                 </div>
             </div>
         </div>
@@ -49,10 +49,9 @@ export default {
     cursor: pointer;
     border: 1px solid lightgray;
 }
-#gereserveerde-image img{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
+#gereserveerde-info{
+    grid-column: 2/2;
+    grid-row: 1/2;
 }
 #gereserveerde-info p{
     font-weight: 600;
@@ -61,5 +60,23 @@ export default {
 }
 #gereserveerde-info span{
     font-size: 100%;
+}
+#gereserveerde-image{
+    grid-column: 1/2;
+}
+#gereserveerde-image img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/*Mobiel design*/
+@media screen and (max-width:600px){
+    #reservering{
+        display: block;
+    }
+    #gereserveerde-info p{
+        float: left;
+    }
 }
 </style>

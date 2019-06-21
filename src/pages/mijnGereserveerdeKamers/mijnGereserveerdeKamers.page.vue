@@ -33,10 +33,13 @@ export default {
 
 <style>
 .mijn-gereserveerde-kamers-wrapper{
-    /* display: grid;
-    grid-template-columns: 1fr 1fr;*/
     margin: auto;
     width: 50%;
     margin-bottom: 4%;
+}
+@media screen and (max-width:600px){
+    .mijn-gereserveerde-kamers-wrapper{    
+            width: 100%;
+    }
 }
 </style>
