@@ -102,6 +102,9 @@ export default {
          
         },
         goToBevesteging(){
+            for(let persoon of this.personen){
+                console.log(persoon);
+            }
             for (let i = 0; i < this.personen.length; i++) {
                 for (let j = 0; j < this.personen[i].length; j++) {
                     if(this.personen[i][j].data != ""){

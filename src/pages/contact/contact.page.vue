@@ -1,11 +1,15 @@
 <template>
     <div id="contact-container">
-        <h2>Contact</h2>
+        <sociaalMedia />
     </div>
 </template>
 
 <script>
+import sociaalMedia from './components/sociaalMedia.component';
 export default {
+  components:{
+    sociaalMedia
+  },
     metaInfo: {
       title: "Contact",
       meta: [
