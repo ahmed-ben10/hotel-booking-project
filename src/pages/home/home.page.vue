@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <search :hotels="hotels" @searchedItems="setSearchedItems" class="search" />
     <hotelResult :allHotels="hotels" :searchedItems="searchedItems" class="hotel-result" />
+    <search :hotels="hotels" @searchedItems="setSearchedItems" class="search" />
   </div>
 </template>
 
@@ -61,4 +61,10 @@
     width: 100%;
   }
 
+  /*Mobiel design*/
+  @media screen and (max-width: 600px){
+    .home{
+      display: block;
+    }
+  }
 </style>

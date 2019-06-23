@@ -123,8 +123,10 @@ footer p:nth-child(even){
   #page-name{
     padding-left: 5%;
     width: 94%;
-    font-size: 5vw;
+    font-size: 4vw;
+    font-weight: bold;
     text-decoration: underline;
+    text-transform: uppercase;
  }
  footer p:first-child{
    display: none;
@@ -133,7 +135,8 @@ footer p:nth-child(even){
     background-color: #05386B;
  }
  footer p:nth-child(even){
-   display: block
+   display: block;
+   font-size: 4vw;
  }
 }
 

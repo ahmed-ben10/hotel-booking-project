@@ -8,6 +8,7 @@
                 <div id="info-container">
                     <h2>{{hotel.naam}} - {{hotels.stad}}</h2>
                     <p>{{hotels.stad}}, {{hotels.land}}</p>
+                    <p>{{hotel.naam}} ({{hotels.stad}}), {{hotels.land}}</p>
                 </div>
                 <ul id="voorzieningen" >
                     <li v-for="(voorziening,index) in hotel.voorzieningen" :key="index"><img :src="voorziening.img" alt="">{{voorziening.naam}}</li>
@@ -15,6 +16,7 @@
                 <div id="prijs-en-button-container">
                     <p>Vanaf</p>
                     <p>&euro;{{hotel.prijs}},- p.p.p.n.</p>
+                    <p>&euro;{{hotel.prijs}} euro per persoon per nacht</p>
                     <Button @click="readMore(hotel)">Lees meer</Button>
                 </div>
             </div>
@@ -59,6 +61,9 @@ export default {
 </script>
 
 <style scoped>
+#hotel-result-wrapper{
+    grid-column: 2/2;
+}
 #hotel-result{
     display: grid;
     grid-template-columns: 2fr 2fr 1fr;
@@ -88,6 +93,9 @@ export default {
 }
 #info-container p{
     color: gray;
+}
+#info-container p:nth-child(3), #prijs-en-button-container p:nth-child(3){
+    display: none;
 }
 #voorzieningen{
     list-style-type: none;
@@ -119,5 +127,69 @@ export default {
     border:none;
     cursor:pointer;
     color:white;
+}
+
+/*Mobiel design*/
+@media screen and (max-width: 600px){
+    #hotel-result{
+        grid-template-columns: 1fr;
+        height: auto;
+        background-color: transparent;
+        border: none;
+        grid-gap: 1% 0;
+        border-bottom: 1px solid #379683;
+    }
+    #image-container{
+        grid-column: 3/3;
+        grid-row: 3/3;
+    }
+    #info-container{
+        grid-column: 2/4;
+        grid-row: 2/3;
+
+    }
+    #info-container p{
+        font-weight: lighter; 
+        color: #05386B;
+        font-size: 4vw;
+    }
+    #info-container p:nth-child(2), #info-container h2{
+        display: none;
+    }
+
+    #voorzieningen{
+        display: none;
+    }
+    #prijs-en-button-container{
+        grid-column: 3/4;
+        grid-row: 4/4;
+        display: grid;
+        grid-gap: 1%;
+        grid-template-columns: 3fr 1fr;
+        margin-bottom: 7%;
+    }
+    #prijs-en-button-container p:first-child, #prijs-en-button-container p:nth-child(2){
+        display: none;
+    }
+    #info-container p:nth-child(3), #prijs-en-button-container p:nth-child(3){
+        display: block;
+        font-size: 4vw;
+        padding: 1%;
+    }
+     #prijs-en-button-container p:nth-child(3){
+         font-size: 3vw;
+         padding-left: 5%;
+     }
+    #prijs-en-button-container button{
+        margin-top: 0;
+        padding: 0;
+    }
+
+    /*Mobiel design*/
+    @media screen and (max-width: 600px){
+        #hotel-result{
+            margin: 3% 0;
+        }
+    }
 }
 </style>

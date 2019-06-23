@@ -1,10 +1,10 @@
 <template>
     <div id="contact-gegevens">
-        <h2 id="titel">Contact-gegevens</h2>
+        <h2 id="titel">Contact gegevens</h2>
        <div id="contact-info-wrapper">
             <div id="contact-info-container">
                  <div id="adres-container">
-                    <h2>Adres</h2>
+                    <h4>Adres</h4>
                     <ul>
                         <li>Hotel Booking BV.</li>
                         <li>Amsterdamse veerkade 20</li>
@@ -28,7 +28,7 @@ export default {
 
 <style>
 #contact-gegevens h2{
-    margin-bottom: 2%
+    margin-bottom: 8%
 }
 #contact-gegevens div{
     margin-bottom: 2%;
@@ -48,10 +48,12 @@ export default {
 @media screen and (max-width: 600px) {
    #titel{
        background-color: #379683;
-       font-size: 4.5vw;
+       font-size: 4vw;
        padding: 2%;
-       font-weight: lighter;
+       margin-bottom: 4% !important;
+       font-weight: bold;
        color: white;
+       text-transform: uppercase;
        text-decoration: underline;
    } 
    #adres-container{

@@ -27,6 +27,9 @@ export default {
 </script>
 
 <style>
+#icon-container h2{
+    margin-bottom: 4%;
+}
 #icon-container ul{
     list-style-type: none;
     padding-left: 0;
@@ -52,10 +55,12 @@ export default {
     }
    #icon-container h2{
        background-color: #379683;
-       font-size: 4.5vw;
+       font-size: 4vw;
        padding: 2%;
-       font-weight: lighter;
+       margin-bottom: 4% !important;
+       font-weight: bold;
        color: white;
+       text-transform: uppercase;
        text-decoration: underline;
    }
    #icon-container ul{
@@ -64,7 +69,7 @@ export default {
        grid-gap: 2%;
    } 
    #icon-container ul li a img{
-        width: 40px;
+        width: 12vw;
    }
 
 }

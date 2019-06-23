@@ -50,4 +50,11 @@ export default {
 #kamers-wrapper{
     width: 100%;
 }
+/*Mobiel design*/
+@media screen and (max-width: 600px){
+    .hotel-informatie{
+        display: block;
+        margin-bottom: 20%;
+    }
+}
 </style>

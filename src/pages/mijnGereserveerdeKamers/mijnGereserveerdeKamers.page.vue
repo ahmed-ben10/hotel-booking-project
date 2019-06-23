@@ -39,7 +39,8 @@ export default {
 }
 @media screen and (max-width:600px){
     .mijn-gereserveerde-kamers-wrapper{    
-            width: 100%;
+        width: 100%;
+        margin-bottom: 25%;
     }
 }
 </style>

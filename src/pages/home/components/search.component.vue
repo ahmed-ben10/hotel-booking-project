@@ -1,5 +1,6 @@
 <template>
     <div id="search-wrapper">
+        <h2 id="titel">Steden</h2>
         <div id="input-container">
             <input type="search" v-model="searchText" placeholder="Zoek een stad..." @keyup="search">
             <img src="https://image.flaticon.com/icons/png/512/55/55369.png" @click="search"/>
@@ -62,8 +63,13 @@ export default {
 
 <style scoped>
 #search-wrapper{
+    grid-row: 1/2;
+    grid-column: 1/2;
     height: 100%;
     padding: 1%;
+}
+#titel{
+    display: none;
 }
 #input-container{
     display:grid;
@@ -113,5 +119,55 @@ export default {
     font-size: 60%;
 }
 
-
+/*Mobiel design*/
+@media screen and (max-width: 600px){
+    #search-wrapper{
+       padding: 0;
+       margin-bottom: 20%;
+    }
+    #titel{
+       background-color: #379683;
+       font-size: 4vw;
+       display: block;
+       font-weight: bold;
+       text-transform: uppercase;
+       padding: 2%;
+       margin-bottom: 4% !important;
+       color: white;
+       text-decoration: underline;
+   }
+   #input-container{
+       display:block;
+       margin-bottom: 10%;
+   }
+   #input-container img{
+        display: none;
+    }
+    #input-container input{
+        width: 90%;
+        margin-left: 5%;
+        border-radius: 20px;
+        border: 1px solid #909090;    
+    }
+    #search-items{
+        border: none;
+    }
+    #search-items ul {
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+    }
+    #search-items ul li{
+       border: none;
+       color: #05386B;
+       text-align: left;
+       padding-left:  10%;
+    }
+    #search-items ul li p{
+        font-weight: bold;
+    }
+    #search-items ul li span{
+        font-size: 100%;
+    }
+    
+}
 </style>

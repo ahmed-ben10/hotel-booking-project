@@ -11,10 +11,10 @@
                     <p>{{kamer.soortBed}}</p>
                     <p>max {{kamer.maxPersonen}} personen</p>
                 </div>
-                <div id="prijs-container">
-                    <p>&euro; {{kamer.prijs.toFixed(2)}}</p>
-                    <p>per persoon per nacht</p>
-                </div>
+            </div>
+            <div id="prijs-container">
+                <p>&euro; {{kamer.prijs.toFixed(2)}}</p>
+                <p>per persoon per nacht</p>
                 <div id="button-container">
                     <button @click="reserveerKamer(kamer)">Reserveer</button>
                 </div>
@@ -35,7 +35,7 @@ export default {
     methods: {
         reserveerKamer(kamer){
             this.$store.commit("goToRoom",kamer);
-            this.$router.push("/kamer")
+            this.$router.push("/reservering")
         }
     }
 }
@@ -53,6 +53,10 @@ export default {
     grid-gap: 2%;
     margin-bottom: 1%;
 }
+#img-container{
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
 #img-container img{
     width: 100%;
     object-fit: cover;
@@ -63,9 +67,6 @@ export default {
     padding: 2%;
     font-weight: 500;
 }
-#prijs-container p{
-
-}
 #button-container button{
     padding: 5% 3%;
     width: 85%;
@@ -74,5 +75,31 @@ export default {
     border:none;
     cursor:pointer;
     color:white;
+}
+
+/*Mobiel design*/
+@media screen and (max-width: 600px){
+    #kamers-wrapper h2{
+        padding-left: 2%;
+        border-bottom: 1px solid #379683;
+        margin-bottom: 3%;
+    }
+    #kamers-container{
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 6%;
+        padding: 2%;
+    }
+    #img-container{
+        grid-row: 1/2;
+    }
+    #img-container img{
+        height: 25vw;
+    }
+    #info p{
+        font-size: 3.5vw;
+    }
+    #prijs-container p:first-child, #prijs-container p{
+        font-size: 3.5vw;
+    }    
 }
 </style>

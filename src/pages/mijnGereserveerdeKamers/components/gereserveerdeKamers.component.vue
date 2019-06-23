@@ -74,9 +74,21 @@ export default {
 @media screen and (max-width:600px){
     #reservering{
         display: block;
+        background-color: transparent;
+        border-bottom: 1px solid #379683;
+        padding: 2% 0;
     }
     #gereserveerde-info p{
-        float: left;
+        font-weight: lighter;
+        text-align: left;
+        margin: 0%;
+        padding: 2%;
     }
+    #gereserveerde-info span{
+        display: none;
+    }
+    #gereserveerde-image img{
+    height: 250px;
+}
 }
 </style>

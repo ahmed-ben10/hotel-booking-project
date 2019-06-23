@@ -20,7 +20,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './pages/hotelInformatie/hotelInformatie.page.vue')
     },
     {
-      path: '/kamer',
+      path: '/reservering',
       name: 'kamer',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
