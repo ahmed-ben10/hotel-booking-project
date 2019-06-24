@@ -18,7 +18,8 @@
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         // al deze keywords dragen bij de vindbaarheid van de website, omdat ze met vakantie, hotels, boekingen en reizen te maken hebben.
-        { keywords: 'hotel, booking, nederland, europa , vakantie, reizen, zomer, zomervakantie, van der valk, babylon,'}
+        { keywords: 'hotel, booking, nederland, europa , vakantie, reizen, zomer, zomervakantie, van der valk, babylon,'},
+         {name: 'description', content: 'Op hotel-bokking kunt u een hotel boeken. In het binnen of buienland.'}
       ]
     },
     components: {

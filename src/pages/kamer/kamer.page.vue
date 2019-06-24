@@ -1,7 +1,9 @@
 <template>
     <div class="kamer-wrapper">
         <gegevens :kamer="kamer" :hotel="hotels" :specificHotel="specificHotel"/>
-        <component :is="currentComponent" :kamer="kamer" @setCurrentComponent="setCurrentComponent"></component>
+        <transition name="component-fade" mode="out-in"> 
+            <component :is="currentComponent" :kamer="kamer" @setCurrentComponent="setCurrentComponent"></component>
+        </transition>
     </div>
 </template>
 
@@ -56,6 +58,12 @@ export default {
 </script>
 
 <style>
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to{
+  opacity: 0;
+}
 .kamer-wrapper{
     display: grid;
     grid-template-columns: 1fr 3fr 8fr 1fr;

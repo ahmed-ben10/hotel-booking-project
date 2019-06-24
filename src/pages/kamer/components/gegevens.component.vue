@@ -57,7 +57,7 @@ export default {
     data: () =>{
         return{
             bijkomendeKosten:18.9,
-            toeristenBelasting: 8.9,
+            toeristenBelasting: 4.5,
             servicekosten: 10
 
         }

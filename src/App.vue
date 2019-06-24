@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <header>
-        <router-link to="/"><img src="@/assets/icon/menu.png" alt="" srcset=""></router-link>
+        <router-link to="/menu"><img src="@/assets/icon/menu.png" alt="" srcset=""></router-link>
         <img src="favicon.ico" alt="" srcset="">
         <p>Hotel-Booking.nl</p>
       </header> 
