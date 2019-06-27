@@ -81,7 +81,18 @@ export default {
 }
 @media screen and (max-width:600px){
     .kamer-wrapper{    
-        display: block;
+        grid-template-columns: 1fr;
+        margin-bottom: 30%;
+    }
+    #reservering-gegevens{
+        grid-column: unset;
+    }
+    #bevesteging, #persoons-gegevens{
+        grid-column: unset;
+    }
+    #persoons-gegevens{
+       grid-row: 2/2;
+       grid-column:unset;
     }
 }
 </style>

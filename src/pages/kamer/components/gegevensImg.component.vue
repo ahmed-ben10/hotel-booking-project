@@ -1,16 +1,15 @@
 <template>
     <div id="reservering-gegevensImg">
-        <div id="titel">
-            <p>Uw reserveringsgegevens</p>
+        <div id="hotel-naam">
             <p>{{specificHotel.naam}} - ({{hotel.stad}}), {{hotel.land}}</p>
         </div>
         <div id="image-container">
             <img :src="kamer.img" alt="kamer foto">
         </div>
         <div id="info-container">
-            <div id="titel-onder-img">
-                <p>{{specificHotel.naam}} - {{hotel.stad}}, {{hotel.land}}</p>
-            </div>
+            <div id="prijs-onder-img">
+                 <p>&euro; {{kamer.prijs.toFixed(2)}} per persoon per nacht</p>
+             </div>
         </div>
     </div>        
 </template>
@@ -39,22 +38,20 @@ export default {
 #reservering-gegevensImg{
     display: none;
 }
-#titel p{
-    padding: 2% 0;
-    font-size: 15pt;
-    font-weight: 600;
-}
-#titel p:nth-child(2){
-    display: none;
+#hotel-naam p{
+    padding: 2% 3%;
+    font-size: 4vw ;
+    font-weight: normal;
 }
 #image-container img{
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
-#titel-onder-img  p{
-    font-weight: 600;
-    padding: 2% 0;
+#prijs-onder-img  p{
+    font-size: 3vw;
+    font-weight: light;
+    padding: 2%;
 }
 @media screen and (max-width: 600px){
     #reservering-gegevensImg{

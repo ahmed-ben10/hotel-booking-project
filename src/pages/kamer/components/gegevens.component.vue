@@ -21,13 +21,13 @@
                 </div>
                 <div id="kamer-prijs-container">
                     <p>Bijkomende kosten:</p>
-                    <p>&euro; {{bijkomendeKosten.toFixed()}}</p>
+                    <p>&euro; {{bijkomendeKosten.toFixed(2)}}</p>
                     <p>Toeristen belasting &euro; {{4.45}} per persoon per nacht:</p>
-                    <p>&euro; {{toeristenBelasting.toFixed()}}</p>
+                    <p>&euro; {{toeristenBelasting.toFixed(2)}}</p>
                 </div>
                 <div id="kamer-service-container">
-                    <p>Servicekosten:</p>
-                    <p>&euro; {{servicekosten.toFixed()}}</p>
+                    <p>Servicekosten:</p> 
+                    <p>&euro; {{servicekosten.toFixed(2)}}</p>
                 </div>
                 <div id="totaal">
                     <p>Totaal:</p>
@@ -66,7 +66,7 @@ export default {
     computed:{
         totaal:function(){
             var totaal = this.kamer.prijs + this.bijkomendeKosten + this.toeristenBelasting + this.servicekosten ;
-            return totaal.toFixed();
+            return totaal.toFixed(2);
         }
     }
 }
@@ -86,14 +86,14 @@ export default {
     height: 200px;
     object-fit: cover;
 }
-#titel-onder-img  p{
+#titel-onder-img p{
     font-weight: 600;
     padding: 2% 0;
 }
 #grid-container div{
     font-size: 85%;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 2fr;
     margin-bottom: 5%;
     align-items: flex-end;
 }
@@ -111,7 +111,10 @@ export default {
     padding: 3%;
 }
 @media screen and (max-width:600px){
-    #titel p:first-child{
+    #info-container{
+        padding: 2%;
+    }
+    #titel p:first-child, #titel-onder-img p{
         display: none;
     }
     #titel p:nth-child(2){
@@ -121,8 +124,14 @@ export default {
         color: #05386B;
         padding: 3%;
     }
+    #grid-container div  p:nth-child(even){
+        grid-column: 3/3;
+    }
     #reservering-gegevens #titel, #reservering-gegevens #image-container{
-    display: none;
-}
+        display: none;
+    }
+    #totaal p,#totaal p span{
+        font-size: 5vw;
+    }
 }
 </style>

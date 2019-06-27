@@ -99,7 +99,7 @@ export default {
 }
 #persoon div label , #aantal-personen label{
     font-weight: 600;
-    text-align: right;
+    text-align: left;
 }
 #persoon div span{
     color: red;

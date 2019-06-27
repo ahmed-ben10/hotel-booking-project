@@ -1,6 +1,9 @@
 <template>
     <div id="persoons-gegevens">
-        <h2>Persoonlijke gegevens</h2>
+        <div id="gegevens-titel">
+            <h2>Persoonlijke gegevens</h2>
+            <h2>Gegevens</h2>
+        </div> 
         <div id="aantal-personen">
             <label for="">Aantal pers.</label>
             <select  v-model="aantal"  aria-placeholder="" @change="setAantal(aantal)">
@@ -163,9 +166,12 @@ export default {
     border-bottom: 1px solid lightgray;
     margin: 2% 0;
 }
+#persoons-gegevens h2:nth-child(2){
+    display: none;
+}
 #persoon div label , #aantal-personen label{
     font-weight: 600;
-    text-align: left !important;
+    text-align: left;
 }
 #persoon div input{
     margin-bottom: 1%;
@@ -189,13 +195,43 @@ export default {
     color:white;
     float: right;
 }
-@media screen and (max-width:900px){
-    #persoon div, #aantal-personen{
-        grid-template-columns: 2fr 4fr;
-    }
-}
-
+/*Mobiel design*/
 @media screen and (max-width:600px){
-
+    #persoon div, #aantal-personen{
+        grid-template-columns: 2fr 6fr !important;
+    }
+    #persoon{
+        margin-bottom: 10%;
+    }
+     #aantal-personen{
+        margin-bottom: 10% !important;
+    }
+    #persoons-gegevens h2:first-child{
+       display: none;
+    }
+    #persoons-gegevens h2:nth-child(2){
+       display: block;
+       background-color: #379683;
+       font-size: 4vw;
+       padding: 2%;
+       margin-bottom: 4% !important;
+       font-weight: bold;
+       color: white;
+       text-transform: uppercase;
+       text-decoration: underline;
+    }
+    #persoon p{
+        padding-left: 3%;
+        font-size: 4vw;
+    } 
+    #persoon div input{
+       	width: 80%;
+    }
+    #persoon div label , #aantal-personen label{
+        text-align: right !important;
+    }
+    /* #submit-container{
+        display: none;
+    } */
 }
 </style>
