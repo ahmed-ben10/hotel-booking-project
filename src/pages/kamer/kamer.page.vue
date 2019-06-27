@@ -1,5 +1,6 @@
 <template>
     <div class="kamer-wrapper">
+        <gegevensImg :kamer="kamer" :hotel="hotels" :specificHotel="specificHotel"/>
         <gegevens :kamer="kamer" :hotel="hotels" :specificHotel="specificHotel"/>
         <transition name="component-fade" mode="out-in"> 
             <component :is="currentComponent" :kamer="kamer" @setCurrentComponent="setCurrentComponent"></component>
@@ -9,6 +10,7 @@
 
 <script>
 import { mapState } from "vuex";
+import gegevensImg from './components/gegevensImg.component.vue';
 import gegevens from './components/gegevens.component.vue';
 import persoonsGegevens from './components/persoonsGegevens.component.vue';
 import bevesteging from './components/bevesteging.component.vue';
@@ -17,6 +19,7 @@ export default {
         this.$store.commit("changePage","Reserveer kamer")
     },
     components:{
+        gegevensImg,
         gegevens,
         persoonsGegevens,
         bevesteging
@@ -75,5 +78,10 @@ export default {
 }
 #bevesteging, #persoons-gegevens{
     grid-column: 3/4;
+}
+@media screen and (max-width:600px){
+    .kamer-wrapper{    
+        display: block;
+    }
 }
 </style>

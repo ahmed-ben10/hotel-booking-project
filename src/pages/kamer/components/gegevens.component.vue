@@ -2,6 +2,7 @@
     <div id="reservering-gegevens">
         <div id="titel">
             <p>Uw reserveringsgegevens</p>
+            <p>{{specificHotel.naam}} - ({{hotel.stad}}), {{hotel.land}}</p>
         </div>
         <div id="image-container">
             <img :src="kamer.img" alt="kamer foto">
@@ -77,6 +78,9 @@ export default {
     font-size: 15pt;
     font-weight: 600;
 }
+#titel p:nth-child(2){
+    display: none;
+}
 #image-container img{
     width: 100%;
     height: 200px;
@@ -105,5 +109,20 @@ export default {
 }
 #totaal p:first-child{
     padding: 3%;
+}
+@media screen and (max-width:600px){
+    #titel p:first-child{
+        display: none;
+    }
+    #titel p:nth-child(2){
+        display: block;
+        font-weight: normal;
+        font-size: 4vw;
+        color: #05386B;
+        padding: 3%;
+    }
+    #reservering-gegevens #titel, #reservering-gegevens #image-container{
+    display: none;
+}
 }
 </style>

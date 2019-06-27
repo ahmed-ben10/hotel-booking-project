@@ -154,7 +154,7 @@ export default {
 }
 #persoon div, #aantal-personen {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 10fr;
     margin-bottom: 2%;
     grid-gap: 1%;
     align-items: flex-end;
@@ -165,7 +165,7 @@ export default {
 }
 #persoon div label , #aantal-personen label{
     font-weight: 600;
-    text-align: right;
+    text-align: left !important;
 }
 #persoon div input{
     margin-bottom: 1%;
@@ -188,5 +188,14 @@ export default {
     cursor:pointer;
     color:white;
     float: right;
+}
+@media screen and (max-width:900px){
+    #persoon div, #aantal-personen{
+        grid-template-columns: 2fr 4fr;
+    }
+}
+
+@media screen and (max-width:600px){
+
 }
 </style>
