@@ -1,9 +1,9 @@
 <template>
     <div class="kamer-wrapper">
         <gegevensImg :kamer="kamer" :hotel="hotels" :specificHotel="specificHotel"/>
-        <gegevens :kamer="kamer" :hotel="hotels" :specificHotel="specificHotel"/>
+        <gegevens :class="{'displayGegevens':displayNoGegevens}" :kamer="kamer" :hotel="hotels" :specificHotel="specificHotel"  @setNewBevesting="setBevesting"/>
         <transition name="component-fade" mode="out-in"> 
-            <component :is="currentComponent" :kamer="kamer" @setCurrentComponent="setCurrentComponent"></component>
+            <component :is="currentComponent" :kamer="kamer" :bevestig="bevestig" @setCurrentComponent="setCurrentComponent"></component>
         </transition>
     </div>
 </template>
@@ -35,16 +35,27 @@ export default {
     },
     data: () =>{
         return {
-            currentComponent:persoonsGegevens
+            currentComponent:persoonsGegevens,
+            displayNoGegevens: false,
+            bevestig: false
         }
     },
     methods:{
         setCurrentComponent(){
             if(this.currentComponent == persoonsGegevens){
                 this.currentComponent = bevesteging;
+                this.displayNoGegevens = true;
             } else {
                 this.currentComponent = persoonsGegevens;
+                this.displayNoGegevens = false;
             }
+            if(window.innerWidth  >= 600){
+                this.displayNoGegevens = false;
+            }
+        },
+        setBevesting(){
+            this.bevestig =  !this.bevestig;
+            console.log(this.bevestig)
         }
     },
     computed:{
@@ -78,6 +89,9 @@ export default {
 }
 #bevesteging, #persoons-gegevens{
     grid-column: 3/4;
+}
+.displayGegevens{
+    display: none;
 }
 @media screen and (max-width:600px){
     .kamer-wrapper{    

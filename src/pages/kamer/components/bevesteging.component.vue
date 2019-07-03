@@ -1,9 +1,12 @@
 <template>
     <div id="bevesteging">
-         <h2>Persoonlijke gegevens</h2>
+         <div id="bevesteging-titel">
+            <h2>Persoonlijke gegevens</h2>
+            <h2>Gegevens</h2>
+        </div> 
         <div id="aantal-personen">
             <label for="">Aantal pers.</label>
-            <p>{{voorlopigeReservering.length}}</p>
+            <p>{{voorlopigeReservering.length}} Volwassen</p>
         </div>
         <div id="persoon" v-for="(aPersoon, i) in voorlopigeReservering" :key="i">
             <p>Persoon {{(i+1)}}</p>
@@ -77,6 +80,9 @@ export default {
 #bevesteging h2{
     margin-bottom: 2%;
 }
+#bevesteging h2:nth-child(2){
+    display: none;
+}
 #bevesteging p:first-child{
     font-size: 15pt;
     font-weight: 600;
@@ -128,5 +134,41 @@ export default {
     border:none;
     cursor:pointer;
     color:white;
+}
+
+/*Mobiel design*/
+@media screen and (max-width: 600px){
+    #persoon, #aantal-personen{
+        padding-left: 3%;
+    }
+    #bevesteging h2:nth-child(1){
+        display: none;
+    }
+    #bevesteging h2:nth-child(2){
+        display: block;
+       background-color: #379683;
+       font-size: 4vw;
+       padding: 2%;
+       margin-bottom: 4% !important;
+       font-weight: bold;
+       color: white;
+       text-transform: uppercase;
+       text-decoration: underline;
+    }
+    #wijzig-container{
+        grid-column: 2/3;
+    }
+    #bevestig-container{
+        margin-right: 4%;
+    }
+    #bevestig-container, #wijzig-container{
+        width: 92%;
+    }
+    #bevestig-container button, #wijzig-container button{
+        padding: 0;
+    }
+    .button-container{
+        grid-template-columns: 2fr 1fr 1fr; 
+    }
 }
 </style>

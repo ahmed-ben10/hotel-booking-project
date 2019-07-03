@@ -49,6 +49,9 @@ export default {
         kamer:{
             type:Object,
             required:true
+        },
+        bevestig:{
+          type: Boolean  
         }
     },
     data: () => {
@@ -61,6 +64,11 @@ export default {
                 { val: "email", error: "", data:"" }
             ]]
         }
+    },
+    watch:{
+        bevestig(newVal, oldVal){
+            this.goToBevesteging();
+        },
     },
     created(){
         if(this.$store.state.voorlopigeReservering.length){
@@ -206,6 +214,9 @@ export default {
      #aantal-personen{
         margin-bottom: 10% !important;
     }
+    #aantal-personen select{
+        width: 86% !important;
+    }
     #persoons-gegevens h2:first-child{
        display: none;
     }
@@ -230,8 +241,8 @@ export default {
     #persoon div label , #aantal-personen label{
         text-align: right !important;
     }
-    /* #submit-container{
+    #submit-container{
         display: none;
-    } */
+    }
 }
 </style>

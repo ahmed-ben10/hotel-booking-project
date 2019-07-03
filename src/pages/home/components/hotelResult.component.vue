@@ -120,6 +120,7 @@ export default {
     
 }
 #prijs-en-button-container button{
+    font-size: 1.5vw;
     padding: 8% 6%;
     width: 85%;
     margin-top: 5%;
@@ -181,6 +182,7 @@ export default {
          padding-left: 5%;
      }
     #prijs-en-button-container button{
+        font-size: 2.5vw;
         margin-top: 0;
         padding: 0;
     }

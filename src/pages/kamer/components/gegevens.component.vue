@@ -33,6 +33,9 @@
                     <p>Totaal:</p>
                     <p>&euro; {{totaal}}<span>per persoon per nacht</span></p>
                 </div>
+                <div id="submit-mobiel-container">
+                    <input type="submit" value="Reserveer" @click="setBevesting">
+                </div>
             </div>
         </div>
     </div>
@@ -61,6 +64,13 @@ export default {
             toeristenBelasting: 4.5,
             servicekosten: 10
 
+        }
+    },
+    methods:{
+        setBevesting(){
+            var bevestig = true;
+            this.$emit("setNewBevesting", bevestig);
+            console.log("123")
         }
     },
     computed:{
@@ -110,6 +120,9 @@ export default {
 #totaal p:first-child{
     padding: 3%;
 }
+#submit-mobiel-container{
+    display: none !important;
+}
 @media screen and (max-width:600px){
     #info-container{
         padding: 2%;
@@ -132,6 +145,17 @@ export default {
     }
     #totaal p,#totaal p span{
         font-size: 5vw;
+    }
+    #submit-mobiel-container{
+        display: block !important;
+    }
+    #submit-mobiel-container input{
+        width: 20%;
+        background-color: #05386B;
+        border:none;
+        cursor:pointer;
+        color:white;
+        float: right;
     }
 }
 </style>
