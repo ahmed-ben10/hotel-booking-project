@@ -10,9 +10,7 @@
                     <p>{{hotels.stad}}, {{hotels.land}}</p>
                     <p>{{hotel.naam}} ({{hotels.stad}}), {{hotels.land}}</p>
                 </div>
-                <ul id="voorzieningen" >
-                    <li v-for="(voorziening,index) in hotel.voorzieningen" :key="index"><img :src="voorziening.img" alt="">{{voorziening.naam}}</li>
-                </ul>
+                <voorzieningen :hotel="hotel" />
                 <div id="prijs-en-button-container">
                     <p>Vanaf</p>
                     <p>&euro;{{hotel.prijs}},- p.p.p.n.</p>
@@ -25,6 +23,7 @@
 </template>
 
 <script>
+import voorzieningen from '@/components/voorzieningen.component.vue';
 export default {
     name:"hotelResult",
     props:{
@@ -36,6 +35,9 @@ export default {
             type: null,
             required:true,
         }
+    },
+    components:{
+        voorzieningen
     },
     data:() =>{
         return{
@@ -128,6 +130,7 @@ export default {
     border:none;
     cursor:pointer;
     color:white;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
 }
 
 /*Mobiel design*/

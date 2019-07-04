@@ -10,15 +10,14 @@
             </div>
             <div id="info-voorzieningen">
                 <h2>Populaire voorzieningen</h2>
-                <ul>
-                    <li v-for="(voorziening,index) in hotel.voorzieningen" :key="index"><img :src="voorziening.img" alt="">{{voorziening.naam}}</li>
-                </ul>
+                <voorzieningen :hotel="hotel" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import voorzieningen from '@/components/voorzieningen.component.vue';
 export default {
     name:"hotel-informatie",
     props:{
@@ -26,7 +25,10 @@ export default {
             type: Object,
             required: true
         }
-    }
+    },
+    components:{
+        voorzieningen
+    },
 
 }
 </script>

@@ -99,6 +99,7 @@ export default {
 }
 #input-container img{
     height: 60%;
+    width: 20px;
     margin-left: 1%;
 }
 #search-items{

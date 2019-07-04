@@ -130,6 +130,7 @@ export default {
 #bevestig-container button, #wijzig-container button{
     padding: 12px 3px;
     width: 100%;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
     background-color: #05386B;
     border:none;
     cursor:pointer;

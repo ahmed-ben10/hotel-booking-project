@@ -152,6 +152,7 @@ export default {
     #submit-mobiel-container input{
         width: 20%;
         background-color: #05386B;
+        box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
         border:none;
         cursor:pointer;
         color:white;
